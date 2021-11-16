@@ -1,0 +1,320 @@
+@import url("https://fonts.googleapis.com/css2?family=Grand+Hotel&family=Henny+Penny&family=Roboto:wght@100&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Catamaran:wght@400;700&family=Henny+Penny&family=Roboto:wght@100&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  --slantedText: "Grand Hotel", cursive;
+  --primaryColor: #698f3f;
+  --secondaryColor: #fca311;
+  --mainDark: #3a3e3b;
+  --mainWhite: #fff;
+  --mainGrey: #e5e5e5;
+  --mainTransition: all 0.3s ease-in-out;
+  --letterSpacing: 0.5rem;
+}
+body {
+  font-family: "Catamaran", sans-serif;
+  line-height: 1.5;
+}
+/* Helper utility classes */
+a {
+  text-decoration: none;
+}
+.text-white {
+  color: var(--mainWhite);
+}
+.text-center {
+  text-align: center;
+}
+.text-primary {
+  color: --(--primaryColor);
+}
+/* clearfix */
+.clearfix::after,
+.clearfix::before {
+  content: " ";
+  clear: both;
+  display: table;
+}
+/* global */
+/* navbar */
+
+/* header */
+.header {
+  min-height: 100vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url("./images/main-bcg.jpeg") center/cover no-repeat fixed;
+  position: relative;
+}
+/* banner */
+.banner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  text-align: center;
+  transform: translate(-50%, -50%);
+  letter-spacing: var(--letterSpacing);
+}
+.banner-subtitle {
+  font-size: 2rem;
+  font-family: var(--slantedText);
+  color: var(--primaryColor);
+  /* animation */
+  animation: slideFromRight 5s ease-in-out 1;
+}
+.banner-title {
+  text-transform: uppercase;
+  font-size: 3.2rem;
+  color: var(--mainWhite);
+  margin-top: 2.5rem;
+  /* animation */
+  animation: slideFromLeft 5s ease-in-out 1;
+}
+.main-btn,
+.banner-btn {
+  display: inline-block;
+  background: var(--primaryColor);
+  text-transform: uppercase;
+  padding: 0.8rem 1.2rem;
+  color: var(--mainDark);
+  font-weight: bold;
+  outline: 0.2rem solid var(--primaryColor);
+  outline-offset: 6px;
+  cursor: pointer;
+  margin-top: 2rem;
+  transition: var(--mainTransition);
+}
+.main-btn:hover,
+.banner-btn:hover {
+  color: var(--mainWhite);
+  opacity: 0.7;
+}
+.banner-btn {
+  padding: 1.2rem 1.5rem;
+  /* animation */
+  animation: show 3s ease-in-out 1;
+}
+
+/* end-height */
+/* animations */
+@keyframes show {
+  0% {
+    transform: scale(2);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+@keyframes slideFromRight {
+  0% {
+    transform: translateX(1000px);
+  }
+  50% {
+    transform: translateX(-200px);
+  }
+  75% {
+    transform: translateX(50px);
+  }
+  100% {
+    transform: translateX(0px);
+  }
+}
+@keyframes slideFromLeft {
+  0% {
+    transform: translateX(-1000px);
+  }
+  50% {
+    transform: translateX(200px);
+  }
+  75% {
+    transform: translateX(-50px);
+  }
+  100% {
+    transform: translateX(0px);
+  }
+}
+
+/* end of animation */
+/* content divider */
+.content-divider {
+  height: 0.5rem;
+  background: linear-gradient(
+    to left,
+    var(--primaryColor),
+    var(--secondaryColor),
+    var(--primaryColor)
+  );
+}
+
+/* endof content divider */
+/* Skills */
+.skills {
+  background: --var(--mainGrey);
+}
+.skill {
+  padding: 2.5rem 0;
+  text-align: center;
+  transition: var(--mainTransition);
+}
+.skill-icon {
+  display: inline-block;
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  transition: var(--mainTransition);
+}
+.skill-title {
+  font-size: 0.9rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: var(--letterSpacing);
+  margin-bottom: 1.5rem;
+  color: var(--primaryColor);
+  transition: var(--mainTransition);
+}
+.skill-text {
+  max-width: 13rem;
+  margin: 0 auto;
+}
+.skill:hover {
+  background: var(--primaryColor);
+}
+.skill:hover .skill-title {
+  color: var(--mainWhite);
+}
+.skill:hover .skill-icon {
+  transform: translateY(-5px);
+}
+@media screen and (min-width: 576px) {
+  .skill {
+    float: left;
+    width: 50%;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .skill {
+    float: left;
+    width: 25%;
+  }
+}
+/* End of SKills */
+/* about section */
+.section-center {
+  padding: 4rem 0;
+  width: 80vw;
+  max-width: 1170px;
+  margin: 0 auto;
+}
+.about-img,
+.about-info {
+  padding: 2rem 0;
+}
+.about-picture-container {
+  background: var(--primaryColor);
+  border: 0.5rem solid var(--primaryColor);
+  border-radius: 1rem;
+  /* overflow to make sure the image doesnt crosses the border*/
+  overflow: hidden;
+}
+.about-picture {
+  width: 100%;
+  /* height: 100%; */
+  display: block;
+  /* border-radius: 50%; */
+  transition: var(--mainTransition);
+}
+.about-picture-container:hover .about-picture {
+  opacity: 0.5;
+  transform: scale(1.2);
+}
+.section-subtitle {
+  font-size: 2rem;
+  font-family: var(--slantedText);
+  letter-spacing: var(--letterSpacing);
+  text-transform: capitalize;
+  color: var(--primaryColor);
+}
+.section-title {
+  font-size: 2rem;
+  text-transform: uppercase;
+}
+.about-text {
+  margin: 1rem 0;
+  max-width: 26rem;
+}
+@media screen and (min-width: 992px) {
+  .about-img,
+  .about-info {
+    float: left;
+    width: 50%;
+    padding: 2rem;
+  }
+}
+
+/* end of about */
+/* products */
+.products {
+  background: var(--mainDark);
+}
+.products-info,
+.products-inventory {
+  padding: 2rem 0;
+}
+.product-text {
+  color: var(--mainWhite);
+  margin: 1rem 0;
+  max-width: 26rem;
+}
+.product {
+  padding: 2rem 0;
+}
+.product-img {
+  width: 100%;
+  display: block;
+  border-radius: 0.4rem;
+  margin-bottom: 2rem;
+}
+.product-title {
+  color: var(--mainWhite);
+  text-transform: uppercase;
+  letter-spacing: var(--letterSpacing);
+  margin-bottom: 1rem;
+}
+.product-price {
+  color: var(--primaryColor);
+  letter-spacing: var(--letterSpacing);
+  font-family: var(--slantedText);
+}
+@media screen and (min-width: 768px) {
+  .product {
+    float: left;
+    width: 50%;
+    padding: 2rem 1rem;
+  }
+  .products-info {
+    padding: 2rem 1rem;
+  }
+}
+@media screen and (min-width: 992px) {
+  .product {
+    width: 33%;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .products-inventory {
+    width: 70%;
+    float: left;
+  }
+  .products-info {
+    float: left;
+    width: 30%;
+  }
+  .product {
+    padding: 1.5rem 1rem 0 1rem;
+  }
+}
+/* end of products */
